@@ -12,18 +12,15 @@ def solution(array_1, array_2):
     second_array_index = 0
 
     while sorted_index < total_length:
-        first_value = None if first_array_index > len(
-            array_1) else array_1[first_array_index]
-        second_value = None if second_array_index > len(
-            array_2) else array_2[second_array_index]
-        if first_value != None:
-            if first_value < second_value:
-                sorted_array[sorted_index] = first_value
-                first_array_index += 1
-            else:
-                sorted_array[sorted_index] = second_value
-                second_array_index += 1
-        elif
+        first_array_done = first_array_index > len(array_1) - 1
+        second_array_done = second_array_index > len(array_1) - 1
+
+        if not first_array_done and (second_array_done or array_1[first_array_index] < array_2[second_array_index]):
+            sorted_array[sorted_index] = array_1[first_array_index]
+            first_array_index += 1
+        else:
+            sorted_array[sorted_index] = array_2[second_array_index]
+            second_array_index += 1
 
         sorted_index += 1
 
